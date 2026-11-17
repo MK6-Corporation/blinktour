@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4f1e9" />
+    <meta
+      name="description"
+      content="Entre no grupo da Blink Tour no WhatsApp."
+    />
+    <title>Blink Tour | Partiu viajar?</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Rockwell, "Roboto Slab", Georgia, "Times New Roman", serif;
+        background: #f4f1e9;
+        color: #191919;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-width: 320px;
+        min-height: 100svh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: clamp(18px, 4vw, 56px);
+        background:
+          radial-gradient(ellipse at 10% 0%, #fffefa 0, transparent 37rem),
+          #f4f1e9;
+      }
+
+      .landing {
+        width: min(100%, 1120px);
+        min-height: 620px;
+        display: grid;
+        grid-template-columns: 0.94fr 1.06fr;
+        overflow: hidden;
+        border: 1px solid #e1dbd0;
+        border-radius: 30px;
+        background: #fffefa;
+        box-shadow: 0 30px 80px -52px #382f2266;
+        animation: arrive 560ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: clamp(34px, 5.7vw, 72px);
+      }
+
+      .logo-wrap {
+        display: flex;
+        align-items: center;
+        min-height: 116px;
+        margin: 0 0 29px -8px;
+        animation: rise-in 600ms 80ms ease-out both;
+      }
+
+      .logo {
+        display: block;
+        width: clamp(132px, 16vw, 176px);
+        height: auto;
+        max-height: 156px;
+        object-fit: contain;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin: 0 0 18px;
+        color: #716a5e;
+        font-family: Arial, sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        animation: rise-in 600ms 150ms ease-out both;
+      }
+
+      .eyebrow::before {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #191919;
+        content: "";
+      }
+
+      h1 {
+        max-width: 9ch;
+        margin: 0;
+        font-size: clamp(3.1rem, 6vw, 5.25rem);
+        font-weight: 800;
+        line-height: 0.99;
+        letter-spacing: -0.055em;
+        text-wrap: balance;
+        animation: rise-in 650ms 210ms ease-out both;
+      }
+
+      .intro {
+        max-width: 32ch;
+        margin: 22px 0 29px;
+        color: #625d54;
+        font-size: clamp(1.08rem, 2vw, 1.25rem);
+        line-height: 1.58;
+        animation: rise-in 650ms 280ms ease-out both;
+      }
+
+      .cta {
+        min-height: 60px;
+        width: min(100%, 370px);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 13px;
+        padding: 16px 22px;
+        border: 2px solid #191919;
+        border-radius: 6px;
+        background: #191919;
+        color: #fffefa;
+        font: inherit;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.25;
+        text-align: center;
+        text-decoration: none;
+        transition:
+          background-color 160ms ease,
+          color 160ms ease,
+          transform 160ms ease;
+        animation: rise-in 650ms 350ms ease-out both;
+      }
+
+      .cta:hover {
+        transform: translateY(-2px);
+        background: #fffefa;
+        color: #191919;
+      }
+
+      .cta:focus-visible {
+        outline: 3px solid #191919;
+        outline-offset: 5px;
+      }
+
+      .cta svg {
+        width: 21px;
+        height: 21px;
+        flex: 0 0 auto;
+        transition: transform 160ms ease;
+      }
+
+      .cta:hover svg {
+        transform: translateX(4px);
+      }
+
+      .note {
+        margin: 14px 0 0;
+        color: #777166;
+        font-size: 0.82rem;
+        line-height: 1.5;
+        animation: rise-in 650ms 410ms ease-out both;
+      }
+
+      .visual {
+        position: relative;
+        display: grid;
+        place-items: center;
+        min-width: 0;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 52% 42%, #fffdf8 0 14%, transparent 14.2%),
+          radial-gradient(circle at 52% 42%, #e9e2d6 0 42%, transparent 42.2%),
+          #eee8dc;
+      }
+
+      .visual::before,
+      .visual::after {
+        position: absolute;
+        top: 50%;
+        left: 52%;
+        width: min(78%, 500px);
+        aspect-ratio: 1;
+        border: 1px solid #d7cfc1;
+        border-radius: 50%;
+        content: "";
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+
+      .visual::after {
+        width: min(63%, 400px);
+        border-style: dashed;
+        border-color: #c9c0b1;
+      }
+
+      .scene {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 610px);
+        overflow: visible;
+      }
+
+      .scene svg {
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+      }
+
+      .flight-path {
+        fill: none;
+        stroke: #817969;
+        stroke-dasharray: 3 11;
+        stroke-linecap: round;
+        stroke-width: 3;
+        animation: route-flow 12s linear infinite;
+      }
+
+      .plane {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: plane-bob 3.8s ease-in-out infinite;
+      }
+
+      @keyframes arrive {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes rise-in {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes route-flow {
+        to { stroke-dashoffset: -56; }
+      }
+
+      @keyframes plane-bob {
+        0%, 100% { transform: translate(0, 0) rotate(-3deg); }
+        50% { transform: translate(4px, -6px) rotate(1deg); }
+      }
+
+      @media (max-width: 760px) {
+        body {
+          padding: 18px;
+        }
+
+        .landing {
+          width: min(100%, 520px);
+          min-height: 0;
+          grid-template-columns: 1fr;
+          border-radius: 24px;
+        }
+
+        .content {
+          align-items: center;
+          padding: 26px 28px 34px;
+          text-align: center;
+        }
+
+        .logo-wrap {
+          min-height: 94px;
+          margin: 0 0 12px;
+        }
+
+        .logo {
+          width: 128px;
+          max-height: 118px;
+        }
+
+        .eyebrow {
+          margin-bottom: 15px;
+          font-size: 0.67rem;
+        }
+
+        h1 {
+          max-width: 10ch;
+          font-size: clamp(3rem, 13vw, 4.3rem);
+        }
+
+        .intro {
+          max-width: 27ch;
+          margin: 15px 0 23px;
+          font-size: 1.05rem;
+        }
+
+        .cta {
+          width: 100%;
+          max-width: 370px;
+        }
+
+        .visual {
+          min-height: clamp(250px, 67vw, 350px);
+        }
+
+        .scene {
+          width: min(100%, 420px);
+        }
+
+        .visual::before {
+          width: min(78%, 360px);
+        }
+
+        .visual::after {
+          width: min(63%, 290px);
+        }
+      }
+
+      @media (max-width: 380px) {
+        body { padding: 12px; }
+        .content { padding-inline: 20px; }
+        .note { font-size: 0.76rem; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="landing">
+      <section class="content" aria-labelledby="hero-title">
+        <div class="logo-wrap">
+          <img
+            class="logo"
+            src="./blinktour-logo-dark.png"
+            alt="Logotipo Blink Tour — Agência de viagens"
+            width="1137"
+            height="1052"
+          />
+        </div>
+        <p class="eyebrow">Grupo no WhatsApp</p>
+        <h1 id="hero-title">Partiu viajar?</h1>
+        <p class="intro">Entre no grupo da Blink Tour e venha com a gente.</p>
+        <a
+          class="cta"
+          href="https://chat.whatsapp.com/H4J5IOSjrj42pScQgHx3lT?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4&amp;iam=2"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Entrar no grupo do WhatsApp, abre em uma nova aba"
+        >
+          Entrar no grupo do WhatsApp
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12h13M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <p class="note">O convite abre em uma nova aba.</p>
+      </section>
+
+      <div class="visual" aria-hidden="true">
+        <div class="scene">
+          <svg viewBox="0 0 640 620" role="presentation" xmlns="http://www.w3.org/2000/svg">
+            <circle class="sun" cx="448" cy="152" r="48" fill="#fffefa" stroke="#cfc5b4" stroke-width="2" />
+            <path d="M71 427c55-65 105-28 151-76 43-45 78-18 119-61 49-50 102-19 153-66 29-27 62-39 99-25" fill="none" stroke="#d5cbbb" stroke-width="2" />
+            <path d="M83 462c66-51 111-8 169-50 48-35 79-12 128-51 48-38 95-9 143-48 35-28 58-35 88-28" fill="none" stroke="#ddd6c9" stroke-width="2" />
+            <path d="M75 354c64-34 118-26 157-63 51-48 99-23 143-60s83-57 129-33c38 20 72-6 102-33" class="flight-path" />
+            <circle cx="75" cy="354" r="8" fill="#fffefa" stroke="#191919" stroke-width="3" />
+            <circle class="orbit-dot" cx="606" cy="165" r="7" fill="#191919" />
+            <g class="plane" transform="translate(503 186) rotate(28)">
+              <path d="M2 14.5 25.8 3c2.2-1 4.3 1.6 2.7 3.5L19.8 17l4.6 11.3c.9 2.1-1.6 3.9-3.3 2.3l-8.3-8-7.6 3.6-1.3 6.3c-.3 1.7-2.7 1.9-3.3.3L0 24.6l-5.6-2.9c-1.5-.8-.9-3.1.8-3.2l6.4-.5.4-3.5Z" fill="#191919" />
+            </g>
+            <g fill="#fffefa" stroke="#bdb3a3" stroke-width="2">
+              <circle cx="177" cy="254" r="11" />
+              <circle cx="380" cy="201" r="9" />
+              <circle cx="444" cy="241" r="6" />
+            </g>
+            <path d="M92 528c102-40 161-33 238-17 75 16 134 2 223-32" fill="none" stroke="#cfc6b7" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
